@@ -8,4 +8,4 @@ STORED AS TEXTFILE
 location <location>;
 
 --HIVE HQL
-select productid,cnt from (select a.productid,cnt,row_number() over (order by a.cnt desc) as rownum from (select productid,count(1) as cnt from brdmpce_gold.productsale where action="Purchase" group by productid) a)b where rownum<11;
+select productid,cnt from (select a.productid,cnt,row_number() over (order by a.cnt desc) as rownum from (select productid,count(1) as cnt from productsale where action="Purchase" group by productid) a)b where rownum<11;
